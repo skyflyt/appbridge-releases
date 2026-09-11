@@ -30,5 +30,5 @@ trusted; this repository cannot supply a replacement key through the feed.
 - Pilot feed: `https://raw.githubusercontent.com/skyflyt/appbridge-releases/main/feed/pilot/windows-x64.json`
 - Versioned builds: [Releases](https://github.com/skyflyt/appbridge-releases/releases)
 
-The feed and first release will appear when pilot acceptance is complete.
+The signed pilot feed and [Windows 1.1.3.0 release](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.3.0) are available for existing test installations.
 Android distribution is planned through Google Play; this feed updates Windows only.
