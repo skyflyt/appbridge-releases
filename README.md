@@ -1,34 +1,60 @@
-# AppBridge releases
+# AppBridge downloads
 
-AppBridge lets a paired Android device use selected apps running on a Windows PC.
-This repository holds public release metadata and downloadable Windows builds.
-The application source repository remains private.
+Use selected Windows apps from your Android phone. Publish the apps you want to
+share, pair your phone, and open multiple remote apps in one Android workspace.
+This repository contains public downloads. The application source remains private.
 
-**Pilot software — not a general release.** Initial setup and recovery testing are
-still being completed. There is no finished installer for new PCs yet; pilot
-downloads are intended for coordinated testing.
+## Download the pilot
 
-## Current Windows prerequisites
+| Device | Download |
+| --- | --- |
+| New Windows 11 24H2+ x64 PC | [AppBridge Setup 1.1.4.0](https://github.com/skyflyt/appbridge-releases/releases/download/v1.1.4.0/AppBridge-1.1.4.0-Setup.exe) |
+| Android 10+ phone or tablet | [AppBridge Pilot 1.1.4 APK](https://github.com/skyflyt/appbridge-releases/releases/download/v1.1.4.0/appbridge-1.1.4-android-pilot.apk) |
+| Release notes and checksums | [Version 1.1.4.0](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.4.0) |
 
-- Windows x64 with an unlocked, signed-in desktop for remote app interaction.
-- PowerShell 7.6 or later installed in its standard, protected Program Files location.
-- An AppBridge installation configured for the signed UIAccess desktop helper.
-- Explicit trust of the pilot's development signing certificate on each test PC.
-  The private signing key is never distributed.
+Already have AppBridge installed on Windows? Open **Updates** in the app. The ZIP
+asset is for that updater; use **Setup.exe** to install on a new PC.
 
-The pilot signing identity is not the final production distribution identity.
-Initial installation and updates can require local administrator approval.
-Downloaded updates preserve existing pairing and app settings; installation waits
-until remote sessions have ended.
+## First connection
 
-## Updates
+1. On Windows, run Setup from the administrator account that will share its apps.
+   Review the pilot certificate trust page. Select the private-network option if
+   your phone will connect on the local network.
+2. Open AppBridge. In **Service**, enter this PC's reachable address and port 47641
+   (for example, `https://192.168.1.10:47641`), enable **Allow LAN connections**, and
+   click **Start listener**. Use your own PC's address.
+3. In **Apps**, choose **Publish local app** and select an app to share.
+4. Install the APK on Android and open **AppBridge Pilot**. In Windows **Pairing**,
+   create an invitation, then scan its QR code on the phone.
+5. Compare the displayed code on both devices, select the allowed apps, and approve
+   the phone on Windows.
 
-The Windows app checks a signed release feed and verifies package hashes before
-staging an update. An installed verification key determines which releases are
-trusted; this repository cannot supply a replacement key through the feed.
+Setup includes Microsoft PowerShell and starts the service and desktop helper.
+Its optional firewall rule allows only the AppBridge service on TCP 47641, on
+Windows Private networks, from the local subnet. VPN routes outside that subnet
+may need a separate owner-managed firewall rule. AppBridge does not include an
+Internet relay. Windows must remain signed in and unlocked for app interaction.
 
-- Pilot feed: `https://raw.githubusercontent.com/skyflyt/appbridge-releases/main/feed/pilot/windows-x64.json`
-- Versioned builds: [Releases](https://github.com/skyflyt/appbridge-releases/releases)
+## Pilot signing and updates
 
-The signed pilot feed and [Windows 1.1.3.0 release](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.3.0) are available for existing test installations.
-Android distribution is planned through Google Play; this feed updates Windows only.
+This is a coordinated pilot. Windows Setup uses a development signing certificate;
+it requires explicit consent before adding the pinned public certificate to the
+PC's trust store. The private key is not distributed. A production publisher
+certificate and broader fresh-PC/device testing remain release requirements.
+
+Windows checks the signed GitHub feed and verifies package signatures and hashes.
+Installation waits for active remote sessions to finish and requires Windows
+administrator approval. Failed service startup triggers rollback. Pairings and app
+settings remain in their protected data store.
+
+The signed Android APK installs as **AppBridge Pilot** alongside the development
+app. Existing development pairings remain in that app; pair the Pilot app once.
+Future Pilot APKs update it in place. Android APK updates are manual for now;
+Google Play distribution is planned separately.
+
+Windows Installed apps provides uninstall, with settings preserved by default and
+an explicit remove-data option for a clean reset. Preserved data needs recovery
+before reinstalling. Shared PowerShell prerequisites remain installed.
+
+Pilot Windows feed:
+`https://raw.githubusercontent.com/skyflyt/appbridge-releases/main/feed/pilot/windows-x64.json`
