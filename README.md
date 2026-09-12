@@ -11,7 +11,7 @@ This repository contains public downloads. The application source remains privat
 | New Windows 11 24H2+ PC, Intel/AMD (x64) | [AppBridge Setup 1.1.4.0 (x64)](https://github.com/skyflyt/appbridge-releases/releases/download/v1.1.4.0/AppBridge-1.1.4.0-Setup.exe) |
 | New Windows 11 24H2+ PC, Windows on ARM (ARM64 / Snapdragon) | [AppBridge Setup 1.1.5.0 (ARM64)](https://github.com/skyflyt/appbridge-releases/releases/download/v1.1.5.0-arm64/AppBridge-1.1.5.0-arm64-Setup.exe) |
 | Android 10+ phone or tablet | [AppBridge Pilot 1.1.4 APK](https://github.com/skyflyt/appbridge-releases/releases/download/v1.1.4.0/appbridge-1.1.4-android-pilot.apk) |
-| Release notes and checksums | [x64: Version 1.1.4.0](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.4.0) · [ARM64: Version 1.1.5.0-arm64](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.5.0-arm64) |
+| Release notes and checksums | [x64: Version 1.1.4.0 Setup](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.4.0) → in-app update [1.1.7.0-x64](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.7.0-x64) · [ARM64: Version 1.1.5.0-arm64 Setup](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.5.0-arm64) → in-app update [1.1.6.0-arm64](https://github.com/skyflyt/appbridge-releases/releases/tag/v1.1.6.0-arm64) |
 
 Pick the Setup that matches your PC. Open **Settings → System → About** and check
 *System type*: "x64-based processor" → x64 Setup; "ARM-based processor" → ARM64
